@@ -15,9 +15,9 @@ fun main(args: Array<String>) {
     print("Enter second number: ")
     val second:Int = reader.nextInt()
 
-    var sum = first + second
+    var product = first * second
 
     // println() prints the following line to the output screen
-    println("You entered: $sum")
+    println("You entered: $product")
 }
 
