@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     // Creates a reader instance which takes
     // input from standard input - keyboard
     val reader = Scanner(System.`in`)
-    print("Enter first number: ")
+    print("Enter first numbers: ")
 
     // nextInt() reads the next integer from the keyboard
     val first:Int = reader.nextInt()
