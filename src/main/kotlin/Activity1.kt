@@ -1,23 +1,23 @@
 package org.example
 
-import java.util.Scanner
 
-fun main(args: Array<String>) {
 
-    // Creates a reader instance which takes
-    // input from standard input - keyboard
-    val reader = Scanner(System.`in`)
-    print("Enter first numbers: ")
+fun main() {
 
-    // nextInt() reads the next integer from the keyboard
-    val first:Int = reader.nextInt()
 
-    print("Enter second number: ")
-    val second:Int = reader.nextInt()
 
-    var product = first * second
+  for(noOfGroup in 1..4) {
+    print("Enter your first name: ")
+    var first = readLine()
+    print("Enter your middle E: ")
+    var E = readLine()
+    print("Enter your last name: ")
+    var last = readLine()
+    print("How old are you: ")
+    var age = readLine()?.toInt() ?: 0
 
-    // println() prints the following line to the output screen
-    println("You entered: $product")
+    println("your name is $first $E. $last\nYour Age is $age")
+  }
+
 }
 
