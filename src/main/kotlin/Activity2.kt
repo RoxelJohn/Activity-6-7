@@ -1,9 +1,9 @@
 package org.example
 
 fun main(){
-    val noOfStud = 5
+    val noOfStuds = 5
     val subjects = listOf("Math", "English", "Filipino", "Science")
-    for (i in 1..noOfStud) {
+    for (i in 1..noOfStuds) {
         println("Write your name: ")
         val name = readLine()
         var totalGrade = 0.0
