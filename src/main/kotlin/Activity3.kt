@@ -2,7 +2,7 @@ package org.example
 
 fun main() {
     for(noOfStud in 1..4) {
-        val birthYear = promptBirthYear()
+        val birthYear = getBirthYear()
         val age = calculateAge(birthYear)
         val ageGroup = determineAgeGroup(age)
         println("What is your name: ")
@@ -10,12 +10,12 @@ fun main() {
         println("Hi $name. Your age is $age. You are $ageGroup")
     }
 }
-fun promptBirthYear():Int{
+fun getBirthYear():Int{
     println("Enter your birth year: ")
     val input = readLine()?.toIntOrNull()
     return if(input == null||input <0){
         println("Invalid input. Please enter a valid year.")
-        promptBirthYear()
+        getBirthYear()
     }else{
         input
     }
