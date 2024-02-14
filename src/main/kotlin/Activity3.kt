@@ -28,7 +28,7 @@ fun calculateAge(birthYear: Int): Int
 fun determineAgeGroup(age:Int):String{
     return when{
         age in 0..1->"Baby"
-        age in 1..17 ->"Underage"
+        age in 1..17 ->"Under Age"
         age in 18..30->"Young Adult"
         age in 31..59->"Adult"
         else->"Old"
