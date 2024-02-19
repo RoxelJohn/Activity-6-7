@@ -13,7 +13,7 @@ fun main() {
 fun getBirthYear():Int{
     println("Enter your birth year: ")
     val input = readLine()?.toIntOrNull()
-    return if(input == null||input <0|| input< 1960 || input >2024){
+    return if(input == null||input <0|| input< 1970 || input >2024){
         println("Invalid input. Please enter a valid year.")
         getBirthYear()
     }else{
