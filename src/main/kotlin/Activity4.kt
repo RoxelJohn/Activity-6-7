@@ -17,7 +17,7 @@ fun main() {
         println("\nMenu:")
         println("1. Add a product to inventory:")
         println("2. Exit")
-        print("\nSelect an option: ")
+        print("\nSelect  option: ")
         when (readLine()?.toIntOrNull()) {
             1 -> {
                 println("\nEnter details:")
