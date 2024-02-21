@@ -1,17 +1,15 @@
-package src.main.kotlin
-
-
-
 import java.text.DecimalFormat
-
-data class CompProducts(val name: String, val quantity: Int, val price: Double, val condition: String, val remarks: String)
 
 fun main() {
     println("*********************************************************************************************")
     println("***                   Welcome to the Computer Products Inventory System!                  ***")
     println("*********************************************************************************************")
 
-
+    var productName = ""
+    var productQuantity = 0
+    var productPrice = 0.0
+    var productCondition = ""
+    var productRemarks = ""
 
     var continueAdd = true
 
@@ -24,29 +22,27 @@ fun main() {
             1 -> {
                 println("\nEnter details:")
                 print("Name: ")
-                val name = readLine() ?: ""
+                productName = readLine() ?: ""
                 print("Quantity: ")
-                val quantity = readLine()?.toIntOrNull() ?: 0
+                productQuantity = readLine()?.toIntOrNull() ?: 0
                 print("Price (in PHP): ")
                 val priceString = readLine()
-                val price = if (priceString != null) priceString.toDoubleOrNull() ?: 0.0 else 0.0
+                productPrice = if (priceString != null) priceString.toDoubleOrNull() ?: 0.0 else 0.0
                 val formatter = DecimalFormat("PHP#,###.00")
-                val formattedPrice = formatter.format(price)
+                val formattedPrice = formatter.format(productPrice)
                 print("Condition(good/bad): ")
-                val condition = readLine() ?: ""
-                val remarks = if (condition.equals("good", ignoreCase = true)) "product is buyable" else "not buyable"
-                val product = CompProducts(name, quantity, price, condition, remarks)
-
+                productCondition = readLine() ?: ""
+                productRemarks = if (productCondition.equals("good", ignoreCase = true)) "product is buyable" else "not buyable"
 
                 println("\nProduct added to inventory!")
-                println("Product: Name: ${product.name}, Quantity: ${product.quantity}, Price: ${formattedPrice}, Condition: ${product.condition}, Remarks: ${product.remarks}")
+                println("Product: Name: $productName, Quantity: $productQuantity, Price: $formattedPrice, Condition: $productCondition, Remarks: $productRemarks")
 
                 println("\nDo you want to add another product to the inventory? (yes/no)")
                 val addAnother = readLine()?.toLowerCase()
                 if (addAnother == "yes") {
                     // Clear the input
                     println()
-                } else if (addAnother == "no") {
+                } else if (addAnother == "no" || addAnother == "n") {
                     continueAdd = false
                 }
             }
