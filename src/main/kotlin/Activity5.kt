@@ -19,7 +19,7 @@ fun main() {
         val studentName = "$studentFname $studentMI. $studentLName"
 
         print("Enter Department: ")
-        val studentDept = readlnOrNull()?.toCharArray()?.get(0)?.toUpperCase()
+        val studentDept = readlnOrNull()?.toUpperCase()
         println("Enter student's year level:")
         println("1. First year")
         println("2. Second year")
@@ -40,21 +40,49 @@ fun main() {
         var borrowedBooks = ""
 
         while (continueAddBook) {
-            print("Enter book name to borrow: ")
-            val borrowBook = readLine()?.toUpperCase() ?: ""
+            println("\nMenu:")
+            println("1. Add book to borrow")
+            println("2. Return book")
+            print("Enter your choice: ")
+            val bookChoice = readLine()?.toIntOrNull()
 
-            borrowedBooks += if (borrowedBooks.isEmpty()) borrowBook else ", $borrowBook"
+            when (bookChoice) {
+                1 -> {
+                    print("Enter book name to borrow: ")
+                    val borrowBook = readLine()?.toUpperCase() ?: ""
 
-            println("Is book '$borrowBook' available: (yes/no)")
-            val isAvailable = readLine()?.toLowerCase() == "yes"
+                    borrowedBooks += if (borrowedBooks.isEmpty()) borrowBook else ", $borrowBook"
 
-            if (isAvailable) {
-                println("Book '$borrowBook' is available. Borrowed!")
-            } else {
-                println("Book '$borrowBook' is unavailable.")
+                    println("Is book '$borrowBook' available: (yes/no)")
+                    val isAvailable = readLine()?.toLowerCase() == "yes"
+
+                    if (isAvailable) {
+                        println("Book '$borrowBook' is available. Borrowed!")
+                    } else {
+                        println("Book '$borrowBook' is unavailable.")
+                    }
+                }
+                2 -> {
+                    if (borrowedBooks.isNotEmpty()) {
+                        print("Enter book name to return: ")
+                        val returnBook = readLine()?.toUpperCase() ?: ""
+
+                        if (borrowedBooks.contains(returnBook)) {
+                            borrowedBooks = borrowedBooks.replace(returnBook, "").replace(", ,", ",")
+                            println("Book '$returnBook' returned successfully.")
+                        } else {
+                            println("Book '$returnBook' was not borrowed.")
+                        }
+                    } else {
+                        println("No books borrowed.")
+                    }
+                }
+                else -> {
+                    println("Invalid choice. Please try again.")
+                }
             }
 
-            println("Do you want to borrow another book? (yes/no)")
+            println("\nDo you want to add/return another book? (yes/no)")
             continueAddBook = readLine()?.toLowerCase() == "yes"
         }
 
