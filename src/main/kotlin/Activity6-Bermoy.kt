@@ -33,5 +33,5 @@ fun main() {
         print("Do you want to try again [yes/no]: ")
     } while (readLine()?.equals("yes", ignoreCase = true) == true)
 
-    println("Thank You!")
+    println("Thank You! ")
 }
